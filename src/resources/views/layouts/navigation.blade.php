@@ -31,10 +31,10 @@
 
             @guest
                 <div class="hidden lg:flex items-center gap-2">
-                    <x-secondary-link :href="route('ui-kit')" :active="request()->routeIs('ui-kit')">
+                    <x-secondary-link :href="route('register')">
                         {{ __('Register') }}
                     </x-secondary-link>
-                    <x-primary-link :href="route('ui-kit')" :active="request()->routeIs('ui-kit')">
+                    <x-primary-link :href="route('login')">
                         {{ __('Login') }}
                     </x-primary-link>
                 </div>
