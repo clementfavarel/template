@@ -13,6 +13,10 @@ Route::get('/ui-kit', function () {
     return view('ui-kit');
 })->name('ui-kit');
 
+Route::get('/mentions', function () {
+    return view('docs.mentions');
+})->name('mentions');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

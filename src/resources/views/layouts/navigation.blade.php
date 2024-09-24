@@ -1,9 +1,10 @@
-<nav x-data="{ open: false }" class="w-full bg-white shadow-lg z-10">
+<nav x-data="{ open: false }" class="w-full bg-white dark:bg-black/80 shadow-b-lg z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0">
         <div class="flex items-center justify-between h-16 sm:h-20">
             <a href="{{ route('home') }}" class="flex sm:items-center space-x-4">
                 <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                <h1 class="hidden sm:flex text-2xl font-bold">{{ config('app.name', 'Template') }}</h1>
+                <h1 class="hidden sm:flex text-black/80 dark:text-white/80">
+                    {{ config('app.name', 'Template') }}</h1>
             </a>
 
             <ul class="hidden lg:flex items-center gap-2">
@@ -17,6 +18,13 @@
                         {{ __('UI Kit') }}
                     </x-nav-link>
                 </li>
+                @auth
+                    <li>
+                        <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
+                            {{ __('Profile') }}
+                        </x-nav-link>
+                    </li>
+                @endauth
             </ul>
 
             @guest
@@ -121,7 +129,7 @@
         </div>
     </div>
 
-    <div class="block lg:hidden fixed bottom-0 left-0 w-full h-20 bg-white shadow-t-lg z-10">
+    <div class="block lg:hidden fixed bottom-0 left-0 w-full h-20 bg-white dark:bg-black z-10">
         <div class="h-full px-4 py-2 flex items-center justify-around">
             <x-responsive-tab-link :href="route('home')" :active="request()->routeIs('home')">
                 <svg class="h-8 w-auto" viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg">
